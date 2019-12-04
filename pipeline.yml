@@ -42,7 +42,7 @@ credhub-interpolate: &credhub-interpolate
     CREDHUB_SECRET: ((credhub-secret))
     CREDHUB_SERVER: https://10.1.0.6:8844
     CREDHUB_CA_CERT: ((credhub-ca-cert))
-    PREFIX: /concourse/main/foundation
+    PREFIX: /concourse/ravi
   input_mapping:
     files: config
   output_mapping:
