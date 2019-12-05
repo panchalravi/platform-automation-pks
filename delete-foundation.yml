@@ -42,7 +42,7 @@ credhub-interpolate: &credhub-interpolate
     CREDHUB_SECRET: ((credhub-secret))
     CREDHUB_SERVER: https://10.1.0.6:8844
     CREDHUB_CA_CERT: ((credhub-ca-cert))
-    PREFIX: /concourse/main/foundation
+    PREFIX: /concourse/ravi
   input_mapping:
     files: config
   output_mapping:
@@ -82,13 +82,14 @@ jobs:
         params:
           file: installation/installation*.zip
   
-  - task: delete-opsmanager-installation
-    image: platform-automation-image
-    file: platform-automation-tasks/tasks/delete-installation.yml
-    input_mapping:
-      env: interpolated-config
-    params:
-      ENV_FILE: env.yml
+  - try: 
+      task: delete-opsmanager-installation
+      image: platform-automation-image
+      file: platform-automation-tasks/tasks/delete-installation.yml
+      input_mapping:
+        env: interpolated-config
+      params:
+        ENV_FILE: env.yml
 
      
   - task: delete-opsmanager-vm
