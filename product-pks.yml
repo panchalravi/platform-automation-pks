@@ -17,7 +17,7 @@ product-properties:
   .properties.cloud_provider.gcp.network:
     value: ((subdomain-name))-pcf-network
   .properties.cloud_provider.gcp.project_id:
-    value: ((gcp-vpc-name))
+    value: ((gcp-project-id))
   .properties.cloud_provider.gcp.worker_service_account:
     value: ((gcp-pks-worker-sa)) 
   .properties.log_sink_resources_deploy:
